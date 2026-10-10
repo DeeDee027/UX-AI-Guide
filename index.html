@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Practical Guide to Human-AI Collaboration for UX Teams</title>
+  <meta name="description" content="A web-based report on where AI helps and where human judgment matters at each stage of the UX design process.">
+  <!-- Font: Plus Jakarta Sans, matching the Figma page design -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ COVER (title page) ============ -->
+  <header class="cover" id="top">
+    <div class="cover-inner">
+      <!-- Logo concept from the proposal: a quill whose tip breaks into small stars -->
+      <svg class="mark" viewBox="0 0 120 120" role="img" aria-labelledby="mark-title">
+        <title id="mark-title">A quill whose tip dissolves into small stars</title>
+        <path class="mark-quill" d="M98 10 C70 16 46 40 38 72 L34 88 L50 83 C80 74 102 46 98 10 Z"/>
+        <path class="mark-spine" d="M95 16 L37 85"/>
+        <path class="mark-star s1" d="M24 89 Q24 98 33 98 Q24 98 24 107 Q24 98 15 98 Q24 98 24 89 Z"/>
+        <path class="mark-star s2" d="M9 104 Q9 110 15 110 Q9 110 9 116 Q9 110 3 110 Q9 110 9 104 Z"/>
+        <path class="mark-star s3" d="M34 109 Q34 114 39 114 Q34 114 34 119 Q34 114 29 114 Q34 114 34 109 Z"/>
+      </svg>
+      <h1>A Practical Guide to Human-AI Collaboration for UX Teams</h1>
+      <p class="cover-sub">Where AI can speed up the design process, and where designers should stay in charge.</p>
+      <p class="byline">Divine Mbabazi <!-- TODO: add course name and date --></p>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ============ TABLE OF CONTENTS ============ -->
+    <!-- On desktop this sticks to the left. On mobile it collapses into a menu. -->
+    <!-- ============ TABLE OF CONTENTS ============
+         Stays in view while you scroll (position: sticky in styles.css).
+         Each link jumps to the section whose id matches its href. -->
+    <nav class="toc" aria-labelledby="toc-title">
+      <details class="toc-details" open>
+        <summary id="toc-title">Table of Contents</summary>
+        <ol>
+          <li><a href="#summary"><span class="toc-num" aria-hidden="true">01</span><span class="toc-label">Executive Summary</span></a></li>
+          <li><a href="#ch1"><span class="toc-num" aria-hidden="true">02</span><span class="toc-label">AI as the Junior Partner</span></a></li>
+          <li><a href="#ch2"><span class="toc-num" aria-hidden="true">03</span><span class="toc-label">Discovery &amp; Research</span></a></li>
+          <li><a href="#ch3"><span class="toc-num" aria-hidden="true">04</span><span class="toc-label">Problem Definition &amp; IA</span></a></li>
+          <li><a href="#ch4"><span class="toc-num" aria-hidden="true">05</span><span class="toc-label">Ideation, Wireframing &amp; Copywriting</span></a></li>
+          <li><a href="#ch5"><span class="toc-num" aria-hidden="true">06</span><span class="toc-label">Prototyping, Usability Testing &amp; Handoff</span></a></li>
+          <li><a href="#troubleshooting"><span class="toc-num" aria-hidden="true">07</span><span class="toc-label">Troubleshooting</span></a></li>
+          <li><a href="#conclusion"><span class="toc-num" aria-hidden="true">08</span><span class="toc-label">Conclusion</span></a></li>
+          <li><a href="#glossary"><span class="toc-num" aria-hidden="true">09</span><span class="toc-label">Glossary</span></a></li>
+          <li><a href="#references"><span class="toc-num" aria-hidden="true">10</span><span class="toc-label">References</span></a></li>
+          <li><a href="#appendix"><span class="toc-num" aria-hidden="true">11</span><span class="toc-label">Appendix</span></a></li>
+        </ol>
+      </details>
+    </nav>
+
+    <main id="main">
+
+      <!-- ============ EXECUTIVE SUMMARY ============ -->
+      <section id="summary" aria-labelledby="summary-h">
+        <p class="chapter-num">01</p>
+        <h2 id="summary-h">Executive Summary</h2>
+        <p>UX design looks different than it did three or four years ago. Back then, a UX designer's or product manager's primary focus was manual execution: wireframing, prototyping, and producing deliverables by hand. Today, AI can take on much of that execution, and the required skill set is shifting toward high-level design evaluation and functional prototyping.</p>
+        <p>That shift doesn't remove the designer from the process. AI can speed up nearly every stage of UX work, but it still needs human oversight to catch errors, question its output, and keep the user at the center of every decision.</p>
+        <p>This guide shows where that balance lies. Organized around the <button type="button" class="term" data-term="double-diamond">Double Diamond framework</button>, it walks through each stage of the UX process, from discovery and research to prototyping and handoff. At each stage, it identifies which tasks AI can handle, which ones call for human judgment, and how to work with AI as a junior partner rather than a replacement.</p>
+      </section>
+
+      <!-- ============ CHAPTER 1 ============ -->
+      <section id="ch1" class="chapter" aria-labelledby="ch1-h">
+        <p class="chapter-num">02</p>
+        <h2 id="ch1-h">AI as the Junior Partner</h2>
+        <p>Ever since AI took off, there's one question I've heard more times than I can count. It comes from fellow UX designers, from web developers, and, honestly, from anyone whose job involves a computer: "Where do I fit into all this?" Or, more bluntly: "Is AI going to replace me?"</p>
+        <p>It's a question I ask myself too, from time to time.</p>
+        <p>Reasonable as the question is, I think the answer is quite simple. The fact that AI is quick on its feet, more than us humans are or will ever be, is not up for debate. However, without training, AI has no context about your users, and even with that training, it still can't read a room, and is sometimes confidently wrong.</p>
+        <p>Accordingly, the real question isn't whether AI will replace designers. It's how designers should work with it. The model I keep coming back to is the junior designer: someone who is fast, eager, tireless, and capable of producing a surprising amount of work, but who doesn't yet know your users, your business, or when something "technically correct" is actually wrong.</p>
+        <p>You wouldn't hand a junior designer a project and ship whatever comes back. You'd brief them clearly, give them context, review their work, and push back when something misses the mark. Working with AI is no different. This approach has a name: <button type="button" class="term" data-term="hitl">Human-in-the-Loop (HITL)</button>, meaning a person stays involved at the decision points rather than letting AI run unchecked from start to finish.</p>
+
+        <h3>Three ground rules for working with your junior partner</h3>
+        <ol class="rules">
+          <li><strong>Brief it like a colleague.</strong> AI output is only as good as the context you give it. Vague prompts produce generic results.</li>
+          <li><strong>Verify everything.</strong> AI can <button type="button" class="term" data-term="hallucination">hallucinate</button>, presenting invented facts, quotes, or statistics with total confidence. Treat its output as a first draft, never a finished product.</li>
+          <li><strong>You own the outcome.</strong> If an AI-generated design excludes users or misrepresents research, that's on the team, not the tool. This also means never pasting <button type="button" class="term" data-term="pii">Personally Identifiable Information (PII)</button> into an AI tool your organization hasn't approved.</li>
+        </ol>
+        <figure class="figure wide">
+          <img src="images/fig1-matrix.svg" alt="A two-by-two matrix. Repetitive, low-stakes tasks such as transcript summaries can be delegated to AI. Repetitive, high-stakes tasks such as generated code need AI drafts that a human verifies. Judgment-based, low-stakes tasks such as brainstorming are led by humans with AI assisting. Judgment-based, high-stakes tasks such as accessibility sign-off stay human only.">
+          <figcaption><strong>Figure 1.</strong> Task Delegation Matrix. UX tasks sorted by how repetitive they are and how much is at stake if they go wrong.</figcaption>
+        </figure>
+
+        <p><strong>How to use this guide.</strong> The remaining chapters follow the four phases of the Double Diamond framework: Discover, Define, Develop, and Deliver. Each chapter shows which tasks to delegate, which to keep, a sample prompt you can adapt, and the risks to watch for.</p>
+      </section>
+
+      <!-- ============ CHAPTER 2 (fully built example: copy this pattern for 3–5) ============ -->
+      <section id="ch2" class="chapter" aria-labelledby="ch2-h">
+        <div class="chapter-band">
+          <p class="chapter-num">03 <span class="phase">Discover</span></p>
+          <h2 id="ch2-h">Discovery &amp; Research</h2>
+          <p>Discovery is the process of going wide to understand users, their needs, pain points, the context in which they live and how all that shapes their experience with a system or product. During this phase, it can be very tempting to use AI because of how speedy its turnaround can be, but it's also arguably the most dangerous phase to use AI in, because everything that follows during the design process hinges on getting this stage right.</p>
+          <p>It's not entirely "wrong" to use AI during this stage, but it's recommended that the designer draws a clear picture of what parts of this process they should own and what parts AI can handle.</p>
+
+          <!-- Delegation table: reuse in every chapter -->
+          <div class="table-wrap">
+            <table class="delegation">
+              <caption>Who handles what during discovery</caption>
+              <thead>
+                <tr><th scope="col" class="col-ai">AI can handle</th><th scope="col" class="col-human">The designer should own</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Drafting interview guides and survey questions</td><td>Conducting interviews and reading body language, hesitation, and emotion</td></tr>
+                <tr><td>Summarizing interview transcripts</td><td>Deciding which insights actually matter</td></tr>
+                <tr><td>Converting notes from user interviews to themes</td><td>Sorting notes by the underlying meaning the users had</td></tr>
+                <tr><td>Conducting competitive scans and desk research</td><td>Recruiting interview participants</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Prompt block with a copy button: reuse in every chapter -->
+        <div class="prompt">
+          <div class="prompt-head">
+            <h3 class="prompt-label" id="ch2-prompt-label">Sample prompt</h3>
+            <button type="button" class="copy-btn" data-copy="ch2-prompt">Copy prompt</button>
+          </div>
+          <p class="prompt-text" id="ch2-prompt">You are a UX researcher helping me synthesize interview notes. Below are anonymized notes from 6 interviews with solo concert-goers who are top listeners of an artist on Spotify about how they decide whether to attend a concert with people they've met through an app. Group the observations into 4–6 themes. For each theme, list the supporting observations and which participant they came from (P1–P6). Do not add any observations that are not in the notes. If something is ambiguous, flag it rather than interpreting it.</p>
+        </div>
+
+        <p>The last two sentences are doing all the heavy lifting because contrary to the rest of the prompt which tells AI what tasks to do, the two sentences tell it what <em>not</em> to do, which narrows the space for AI hallucination thus making the output checkable.</p>
+
+        <h3>Watch out for</h3>
+        <ul class="watch">
+          <li><strong>Invented quotes.</strong> TODO: paste from your draft.</li>
+          <li><strong>PII in transcripts.</strong> TODO</li>
+          <li><strong>“Synthetic users.”</strong> TODO</li>
+        </ul>
+
+        <figure class="figure wide">
+          <img src="images/fig2-summary.svg" alt="A mock AI summary of six Concert Connect interviews with three flagged errors: it claims all six participants would share their location when only one did, it invents a quote from participant P4, and it repeats a participant's real name and social handle.">
+          <figcaption><strong>Figure 2.</strong> An annotated AI research summary showing three common errors: overgeneralization, a fabricated quote, and exposed personal information. Concert Connect is the author's own concept, not an existing Spotify feature. All participants, names, handles, and quotes are fictional and were created for illustration.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ CHAPTER 3 (toggle-figure example) ============ -->
+      <section id="ch3" class="chapter" aria-labelledby="ch3-h">
+        <div class="chapter-band">
+          <p class="chapter-num">04 <span class="phase">Define</span></p>
+          <h2 id="ch3-h">Problem Definition &amp; Information Architecture</h2>
+          <p>TODO: intro, delegation table, sample prompt, and Watch out for, following the Chapter 2 pattern.</p>
+        </div>
+        <figure class="figure wide toggle-figure">
+          <div class="figure-toggle" role="group" aria-label="Choose which version to show">
+            <button type="button" data-show="ai" aria-pressed="true">AI-proposed</button>
+            <button type="button" data-show="human" aria-pressed="false">Human-revised</button>
+          </div>
+          <div class="fig-version" data-version="ai">
+            <img src="images/fig3-ai.svg" alt="AI-proposed structure: Concert Connect is a separate tab called Listener Matching, and privacy controls sit three levels deep under Settings, Privacy, Data Sharing.">
+          </div>
+          <div class="fig-version" data-version="human" hidden>
+            <img src="images/fig3-human.svg" alt="Human-revised structure: Concert Connect lives on each concert listing as Find people to go with, followed by an opt-in step to choose what matches can see, a meet-in-public reminder, matches with shared listening history, and a group chat.">
+          </div>
+          <figcaption><strong>Figure 3.</strong> An AI-proposed and a human-revised information architecture for Concert Connect, with each change linked to the research themes in Chapter 2. Both structures were created by the author for illustration.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ CHAPTER 4 ============ -->
+      <section id="ch4" class="chapter" aria-labelledby="ch4-h">
+        <div class="chapter-band">
+          <p class="chapter-num">05 <span class="phase">Develop</span></p>
+          <h2 id="ch4-h">Ideation, Wireframing &amp; Copywriting</h2>
+          <p>TODO: follow the Chapter 2 pattern.</p>
+        </div>
+
+        <figure class="figure wide toggle-figure">
+          <div class="figure-toggle" role="group" aria-label="Choose which version to show">
+            <button type="button" data-show="ai" aria-pressed="true">AI-generated</button>
+            <button type="button" data-show="human" aria-pressed="false">Human-revised</button>
+          </div>
+          <div class="fig-version" data-version="ai">
+            <img src="images/fig4-ai.svg" alt="AI-generated opt-in screen with pressure copy that says Never go solo again, faint gray body text, four unlabeled sharing toggles all switched on, a large Find my concert crew button, and a tiny Not now link.">
+          </div>
+          <div class="fig-version" data-version="human" hidden>
+            <img src="images/fig4-human.svg" alt="Human-revised opt-in screen titled Find people to go with, explaining exactly what is shared, with labeled toggles switched off by default, a note that location and other playlists are never shared, and equal-sized Not now and Turn on buttons.">
+          </div>
+          <figcaption><strong>Figure 4.</strong> An AI-generated and a human-revised version of the Concert Connect opt-in screen. Concert Connect, the artist "Lumen Bay," and the venue are fictional and were created by the author for illustration.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ CHAPTER 5 ============ -->
+      <section id="ch5" class="chapter" aria-labelledby="ch5-h">
+        <div class="chapter-band">
+          <p class="chapter-num">06 <span class="phase">Deliver</span></p>
+          <h2 id="ch5-h">Prototyping, Usability Testing &amp; Handoff</h2>
+          <p>TODO: follow the Chapter 2 pattern.</p>
+        </div>
+      </section>
+
+      <!-- ============ TROUBLESHOOTING ============ -->
+      <section id="troubleshooting" aria-labelledby="troubleshooting-h">
+        <h2 id="troubleshooting-h">Troubleshooting: When AI Output Goes Wrong</h2>
+        <p>TODO: rebuild the troubleshooting table as an HTML table (reuse the .delegation table styles) instead of an image, so it's readable on phones and by screen readers.</p>
+      </section>
+
+      <!-- ============ CONCLUSION ============ -->
+      <section id="conclusion" aria-labelledby="conclusion-h">
+        <h2 id="conclusion-h">Conclusion</h2>
+        <p>TODO: paste from your draft.</p>
+      </section>
+
+      <!-- ============ GLOSSARY ============ -->
+      <!-- The pop-up definitions in the chapters are read from this list,
+           so each data-term here must match a data-term on a .term button. -->
+      <section id="glossary" aria-labelledby="glossary-h">
+        <h2 id="glossary-h">Glossary</h2>
+        <dl class="glossary">
+          <dt data-term="affinity">Affinity diagramming</dt>
+          <dd data-term="affinity">A method for organizing research observations into groups based on shared themes.</dd>
+          <dt data-term="agentic">Agentic AI</dt>
+          <dd data-term="agentic">AI systems that can plan and carry out multi-step tasks with some independence, such as navigating software or editing files.</dd>
+          <dt data-term="hallucination">AI hallucination</dt>
+          <dd data-term="hallucination">When an AI produces false or invented information and presents it as fact.</dd>
+          <dt data-term="slop">AI slop</dt>
+          <dd data-term="slop">Low-quality, generic AI-generated content produced in volume without meaningful human review.</dd>
+          <dt data-term="context-window">Context window</dt>
+          <dd data-term="context-window">The amount of text an AI model can consider at one time; information beyond it may be lost or ignored.</dd>
+          <dt data-term="deskilling">Deskilling</dt>
+          <dd data-term="deskilling">The loss of skills that happens when people rely on automation for tasks they used to do themselves.</dd>
+          <dt data-term="double-diamond">Double Diamond framework</dt>
+          <dd data-term="double-diamond">A design process model with four phases (Discover, Define, Develop, Deliver), alternating between broad exploration and narrow focus.</dd>
+          <dt data-term="genai">Generative AI (GenAI)</dt>
+          <dd data-term="genai">AI that creates new content, such as text, images, or code, based on patterns in its training data.</dd>
+          <dt data-term="hitl">HITL (Human-in-the-Loop)</dt>
+          <dd data-term="hitl">An approach where people stay involved in reviewing and approving AI decisions.</dd>
+          <dt data-term="ia">Information architecture (IA)</dt>
+          <dd data-term="ia">The structure and organization of content so users can find what they need.</dd>
+          <dt data-term="microcopy">Microcopy</dt>
+          <dd data-term="microcopy">Short interface text, such as button labels, error messages, and form hints.</dd>
+          <dt data-term="pii">PII (Personally Identifiable Information)</dt>
+          <dd data-term="pii">Any data that could identify a specific person, such as names, emails, or addresses.</dd>
+          <dt data-term="prompt-engineering">Prompt engineering</dt>
+          <dd data-term="prompt-engineering">The practice of writing and refining instructions to get useful output from AI.</dd>
+          <dt data-term="wcag">WCAG (Web Content Accessibility Guidelines)</dt>
+          <dd data-term="wcag">International standards for making web content accessible to people with disabilities.</dd>
+        </dl>
+      </section>
+
+      <!-- ============ REFERENCES ============ -->
+      <section id="references" aria-labelledby="references-h">
+        <h2 id="references-h">References</h2>
+        <ol class="references">
+          <li>TODO: add sources in your course's citation style.</li>
+        </ol>
+      </section>
+
+      <!-- ============ APPENDIX ============ -->
+      <section id="appendix" aria-labelledby="appendix-h">
+        <h2 id="appendix-h">Appendix</h2>
+        <h3>Appendix A: Task Delegation Matrix</h3>
+        <p>TODO: full-size version of Figure 1.</p>
+        <h3>Appendix B: Prompt library</h3>
+        <p>TODO: all four sample prompts, each with a copy button (reuse the .prompt block).</p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 Divine Mbabazi. <a href="#top">Back to top</a></p>
+  </footer>
+
+  <!-- Shared pop-up for glossary terms (filled in by script.js) -->
+  <div class="term-pop" id="term-pop" role="dialog" aria-modal="false" aria-labelledby="term-pop-title" hidden>
+    <p class="term-pop-title" id="term-pop-title"></p>
+    <p class="term-pop-def"></p>
+    <a class="term-pop-link" href="#glossary">See full glossary</a>
+  </div>
+
+  <!-- Announces "Copied" to screen readers -->
+  <p class="sr-only" aria-live="polite" id="status"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
